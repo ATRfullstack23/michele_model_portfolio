@@ -1,5 +1,16 @@
-import adapter from '@sveltejs/adapter-auto';
+import adapter from '@sveltejs/adapter-static';
 import { relative, sep } from 'node:path';
+
+/**
+ * GitHub **user** site (username.github.io) or custom domain: leave BASE_PATH unset (default '').
+ * GitHub **project** site (username.github.io/REPO): build with repo name, e.g.
+ *   PowerShell: $env:BASE_PATH='/REPO'; npm run build
+ *   bash: BASE_PATH=/REPO npm run build
+ */
+const base =
+	typeof process.env.BASE_PATH === 'string'
+		? process.env.BASE_PATH.replace(/\/$/, '') || ''
+		: '';
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
@@ -14,10 +25,14 @@ const config = {
 		}
 	},
 	kit: {
-		// adapter-auto only supports some environments, see https://svelte.dev/docs/kit/adapter-auto for a list.
-		// If your environment is not supported, or you settled on a specific environment, switch out the adapter.
-		// See https://svelte.dev/docs/kit/adapters for more information about adapters.
-		adapter: adapter()
+		paths: { base },
+		// Static HTML/CSS/JS in ./build — upload **contents** of ./build so index.html sits at the host root (not inside src/).
+		adapter: adapter({
+			pages: 'build',
+			assets: 'build',
+			fallback: undefined,
+			strict: true
+		})
 	}
 };
 
