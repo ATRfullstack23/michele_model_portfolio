@@ -51,8 +51,8 @@
 	.head_row {
 		display: grid;
 		grid-template-columns: repeat(8, minmax(0, 1fr));
-		gap: 1rem;
-		max-width: min(1680px, 100%);
+		gap: 0.85rem;
+		max-width: min(1080px, 100%);
 		margin: 0 auto;
 	}
 
@@ -90,6 +90,8 @@
 	@media (max-width: 900px) {
 		.head_row {
 			grid-template-columns: repeat(2, minmax(0, 1fr));
+			max-width: min(430px, 100%);
+			gap: 0.75rem;
 		}
 	}
 </style>

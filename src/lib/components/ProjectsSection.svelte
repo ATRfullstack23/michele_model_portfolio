@@ -87,13 +87,13 @@
 		justify-self: end;
 	}
 
+	/* Narrower than works_header: tiles stay square (1:1) but physically smaller. */
 	.masonry {
 		display: grid;
-		grid-template-columns: 1.05fr 1fr;
-		/* Do not cap row height with a small max (e.g. 28vw) or a spanning .cell_tall overflows and later cells paint on top. */
-		grid-template-rows: minmax(240px, auto) minmax(240px, auto) minmax(200px, auto);
+		grid-template-columns: 1fr 1fr;
+		grid-template-rows: auto auto auto;
 		gap: 1rem;
-		max-width: min(1080px, 100%);
+		max-width: min(640px, 100%);
 		margin: 0 auto;
 		align-items: stretch;
 	}
@@ -105,11 +105,11 @@
 
 	.cell_tall {
 		grid-column: 1;
-		grid-row: 1 / 3;
+		grid-row: 1;
 		min-width: 0;
 		width: 100%;
-		min-height: min(520px, 75vh);
-		align-self: stretch;
+		min-height: 0;
+		aspect-ratio: 1 / 1;
 		background-image: var(--img);
 		background-repeat: no-repeat;
 		background-size: cover;
@@ -120,7 +120,8 @@
 	.cell_close {
 		grid-column: 2;
 		grid-row: 1;
-		min-height: 200px;
+		min-height: 0;
+		aspect-ratio: 1 / 1;
 		background-image: var(--img);
 		background-size: cover;
 		background-position: center 20%;
@@ -128,7 +129,7 @@
 	}
 
 	.cell_copy {
-		grid-column: 2;
+		grid-column: 1 / -1;
 		grid-row: 2;
 		padding: 1.35rem 1.5rem;
 		align-self: stretch;
@@ -154,7 +155,8 @@
 	.cell_square {
 		grid-column: 1;
 		grid-row: 3;
-		min-height: 200px;
+		min-height: 0;
+		aspect-ratio: 1 / 1;
 		background-image: var(--img);
 		background-size: cover;
 		background-position: center;
@@ -164,7 +166,8 @@
 	.cell_wide {
 		grid-column: 2;
 		grid-row: 3;
-		min-height: 200px;
+		min-height: 0;
+		aspect-ratio: 1 / 1;
 		background-image: var(--img);
 		background-size: cover;
 		background-position: center 35%;
@@ -197,6 +200,7 @@
 
 		.masonry {
 			grid-template-columns: 1fr;
+			max-width: min(430px, 100%);
 		}
 
 		.cell_tall,

@@ -54,10 +54,13 @@
 	:global(html) {
 		scroll-behavior: smooth;
 		font-size: 88%;
+		/* 100vw full-bleed sections include scrollbar gutter; clip prevents horizontal scroll. */
+		overflow-x: clip;
 	}
 
 	:global(body) {
 		margin: 0;
+		overflow-x: clip;
 		font-family: var(--font-body);
 		font-weight: 400;
 		letter-spacing: 0.02em;
