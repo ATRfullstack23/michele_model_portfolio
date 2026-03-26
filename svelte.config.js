@@ -1,4 +1,4 @@
-import adapter from '@sveltejs/adapter-static';
+
 import { relative, sep } from 'node:path';
 
 /**
@@ -7,6 +7,9 @@ import { relative, sep } from 'node:path';
  *   PowerShell: $env:BASE_PATH='/REPO'; npm run build
  *   bash: BASE_PATH=/REPO npm run build
  */
+import adapter from '@sveltejs/adapter-vercel';
+
+
 const base =
 	typeof process.env.BASE_PATH === 'string'
 		? process.env.BASE_PATH.replace(/\/$/, '') || ''
@@ -35,5 +38,9 @@ const config = {
 		})
 	}
 };
+export default {
+	kit: {
+		adapter: adapter()
+	}
+}
 
-export default config;
