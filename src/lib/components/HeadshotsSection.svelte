@@ -3,10 +3,10 @@
 
 	const headshot_list = [
 		{ label: 'Look 01', image_src: '/michele_images/h1.webp' },
-		{ label: 'Look 02', image_src: '/michele_images/h2.webp' },
+		{ label: 'Look 02', image_src: '/michele_images/ab.webp' },
 		{ label: 'Look 03', image_src: '/michele_images/h3.webp' },
-		{ label: 'Look 04', image_src: '/michele_images/h4.webp' },
-		{ label: 'Look 05', image_src: '/michele_images/h5.webp' },
+		{ label: 'Look 04', image_src: '/michele_images/R1.webp' },
+		{ label: 'Look 05', image_src: '/michele_images/R2.webp' },
 		{ label: 'Look 06', image_src: '/michele_images/h6.webp' },
 		{ label: 'Look 07', image_src: '/michele_images/h7.webp' },
 		{ label: 'Look 08', image_src: '/michele_images/h8.webp' },
@@ -51,7 +51,7 @@
 <svelte:window onkeydown={on_window_keydown} />
 
 <section id="portraits" class="head_band">
-	<h2 class="head_title">Portraits &amp; studies</h2>
+	<h2 class="head_title">Portraits &amp; Stories</h2>
 	<div class="head_row">
 		{#each headshot_list as head_item (head_item.label)}
 			<article class="head_cell">

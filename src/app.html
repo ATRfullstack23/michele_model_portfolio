@@ -3,6 +3,21 @@
 	<head>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<!-- Inline fallback if JS/CSS bundles 404 (wrong BASE_PATH, etc.) — full theme still comes from app.css -->
+		<style>
+			html {
+				scroll-behavior: smooth;
+				overflow-x: clip;
+			}
+			body {
+				margin: 0;
+				overflow-x: clip;
+				background: #070506;
+				color: #f5eef0;
+				font-family: system-ui, -apple-system, Segoe UI, sans-serif;
+				-webkit-font-smoothing: antialiased;
+			}
+		</style>
 		%sveltekit.head%
 	</head>
 	<body data-sveltekit-preload-data="hover">

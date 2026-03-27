@@ -15,14 +15,14 @@
 
 	<div class="masonry">
 		<div
-			class="cell cell_tall"
-			style="--img: url('/michele_images/R1.webp');"
+			class="cell cell_tall cell_r3_portrait"
+			style="--img: url('/michele_images/R3.webp');"
 			role="img"
 			aria-label="Editorial full length"
 		></div>
 		<div
-			class="cell cell_close"
-			style="--img: url('/michele_images/R2.webp');"
+			class="cell cell_close cell_r4_portrait"
+			style="--img: url('/michele_images/R4.webp');"
 			role="img"
 			aria-label="Portrait close-up"
 		></div>
@@ -31,14 +31,14 @@
 			<p>{featured_desc}</p>
 		</article>
 		<div
-			class="cell cell_square"
-			style="--img: url('/michele_images/R3.webp');"
+			class="cell cell_square cell_h4_portrait"
+			style="--img: url('/michele_images/h4.webp');"
 			role="img"
 			aria-label="Square editorial"
 		></div>
 		<div
 			class="cell cell_wide"
-			style="--img: url('/michele_images/R4.webp');"
+			style="--img: url('/michele_images/h5.webp');"
 			role="img"
 			aria-label="Wide campaign frame"
 		></div>
@@ -87,10 +87,10 @@
 		justify-self: end;
 	}
 
-	/* Narrower than works_header: tiles stay square (1:1) but physically smaller. */
+	/* Equal-width columns: minmax(0,1fr) + min-width:0 on tiles avoids uneven track sizing */
 	.masonry {
 		display: grid;
-		grid-template-columns: 1fr 1fr;
+		grid-template-columns: repeat(2, minmax(0, 1fr));
 		grid-template-rows: auto auto auto;
 		gap: 1rem;
 		max-width: min(640px, 100%);
@@ -103,13 +103,21 @@
 		overflow: hidden;
 	}
 
+	.cell_tall,
+	.cell_close,
+	.cell_square,
+	.cell_wide {
+		width: 100%;
+		min-width: 0;
+		max-width: 100%;
+		justify-self: stretch;
+	}
+
 	.cell_tall {
 		grid-column: 1;
 		grid-row: 1;
-		min-width: 0;
-		width: 100%;
 		min-height: 0;
-		aspect-ratio: 10 / 11;
+		aspect-ratio: 10 / 12;
 		background-image: var(--img);
 		background-repeat: no-repeat;
 		background-size: cover;
@@ -121,7 +129,7 @@
 		grid-column: 2;
 		grid-row: 1;
 		min-height: 0;
-		aspect-ratio: 10 / 11;
+		aspect-ratio: 10 / 12;
 		background-image: var(--img);
 		background-size: cover;
 		background-position: center 20%;
@@ -156,18 +164,34 @@
 		grid-column: 1;
 		grid-row: 3;
 		min-height: 0;
-		aspect-ratio: 10 / 11;
+		aspect-ratio: 10 / 12;
 		background-image: var(--img);
 		background-size: cover;
 		background-position: center;
 		transition: transform 420ms ease;
 	}
 
+	/* R3 / R4 / h4 — same taller portrait frame (10∶14) */
+	.cell_r3_portrait {
+		aspect-ratio: 10 / 14;
+		background-position: center center;
+	}
+
+	.cell_r4_portrait {
+		aspect-ratio: 10 / 14;
+		background-position: center 22%;
+	}
+
+	.cell_h4_portrait {
+		aspect-ratio: 10 / 14;
+		background-position: center 28%;
+	}
+
 	.cell_wide {
 		grid-column: 2;
 		grid-row: 3;
 		min-height: 0;
-		aspect-ratio: 10 / 11;
+		aspect-ratio: 10 / 12;
 		background-image: var(--img);
 		background-size: cover;
 		background-position: center 35%;
@@ -202,7 +226,7 @@
 		}
 
 		.masonry {
-			grid-template-columns: 1fr;
+			grid-template-columns: minmax(0, 1fr);
 			max-width: min(430px, 100%);
 		}
 
@@ -212,14 +236,31 @@
 		.cell_wide {
 			grid-column: 1;
 			grid-row: auto;
-			aspect-ratio: 10 / 11;
+			aspect-ratio: 10 / 12;
 			min-height: unset;
 			height: auto;
 			width: 100%;
+			min-width: 0;
+			max-width: 100%;
 			max-height: none;
 			background-size: cover;
 			background-position: center center;
 			background-repeat: no-repeat;
+		}
+
+		.cell_tall.cell_r3_portrait {
+			aspect-ratio: 10 / 14;
+			background-position: center center;
+		}
+
+		.cell_close.cell_r4_portrait {
+			aspect-ratio: 10 / 14;
+			background-position: center 22%;
+		}
+
+		.cell_square.cell_h4_portrait {
+			aspect-ratio: 10 / 14;
+			background-position: center 28%;
 		}
 
 		.cell_copy {

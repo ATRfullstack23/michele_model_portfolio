@@ -2,7 +2,7 @@
 	<div class="about_split">
 		<div
 			class="about_photo"
-			style="--about-image: url('/michele_images/ab.webp');"
+			style="--about-image: url('/michele_images/h2.webp');"
 			role="img"
 			aria-label="Michela portrait"
 		></div>

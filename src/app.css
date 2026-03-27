@@ -1,0 +1,43 @@
+/* Global theme — imported from root layout so CSS loads even when page chunks mis-resolve */
+:root {
+	--font-display: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
+	--font-body: 'Outfit', system-ui, -apple-system, sans-serif;
+	--text-1: #f5eef0;
+	--text-2: #c4b8bc;
+	--text-3: #8a7f84;
+	--accent-rose: #e8b4c2;
+	--accent-rose-deep: #c995a6;
+	--accent-rose-soft: rgba(232, 180, 194, 0.12);
+	--accent-rose-glow: rgba(232, 180, 194, 0.45);
+	--text-gold: #e8b4c2;
+	--text-ink: #0c0a0b;
+	--surface-void: #070506;
+	--surface-card: #100d0e;
+}
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+html {
+	scroll-behavior: smooth;
+	font-size: 88%;
+	overflow-x: clip;
+}
+
+body {
+	margin: 0;
+	overflow-x: clip;
+	font-family: var(--font-body);
+	font-weight: 400;
+	letter-spacing: 0.02em;
+	background: var(--surface-void);
+	color: var(--text-1);
+	-webkit-font-smoothing: antialiased;
+}
+
+section {
+	scroll-margin-top: 5rem;
+}
