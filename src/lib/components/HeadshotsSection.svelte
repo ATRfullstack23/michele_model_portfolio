@@ -145,7 +145,6 @@
 		transition:
 			transform 420ms ease,
 			box-shadow 420ms ease;
-		cursor: pointer;
 	}
 
 	.head_photo:focus-visible {
@@ -196,7 +195,6 @@
 		color: var(--text-1);
 		font-size: 1.35rem;
 		line-height: 1;
-		cursor: pointer;
 		display: flex;
 		align-items: center;
 		justify-content: center;

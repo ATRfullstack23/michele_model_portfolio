@@ -41,3 +41,16 @@ body {
 section {
 	scroll-margin-top: 5rem;
 }
+
+/* No hand cursor — keep default arrow for links / controls */
+a,
+button,
+input[type='button'],
+input[type='submit'],
+input[type='reset'],
+summary,
+select,
+label,
+[role='button'] {
+	cursor: default;
+}

@@ -64,7 +64,6 @@
 		background: rgba(10, 7, 9, 0.88);
 		backdrop-filter: blur(12px);
 		color: var(--text-1);
-		cursor: pointer;
 		box-shadow:
 			0 12px 32px rgba(0, 0, 0, 0.45),
 			0 0 0 1px rgba(232, 180, 194, 0.06);
