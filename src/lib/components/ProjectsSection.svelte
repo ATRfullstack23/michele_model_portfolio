@@ -1,4 +1,6 @@
 <script>
+	import PhotographerCredit from '$lib/components/PhotographerCredit.svelte';
+
 	const featured_title = 'The next frame';
 	const featured_desc =
 		'Implied lines, soft contrast, and a sensual stillness that lingers after the shutter—this is the energy I bring to lingerie, beauty, and intimate fine art.';
@@ -14,34 +16,54 @@
 	</header>
 
 	<div class="masonry">
-		<div
-			class="cell cell_tall cell_r3_portrait"
-			style="--img: url('/michele_images/R3.webp');"
-			role="img"
-			aria-label="Editorial full length"
-		></div>
-		<div
-			class="cell cell_close cell_r4_portrait"
-			style="--img: url('/michele_images/R4.webp');"
-			role="img"
-			aria-label="Portrait close-up"
-		></div>
+		<figure class="masonry_pack masonry_r3">
+			<div
+				class="cell gallery_tile"
+				style="--img: url('/michele_images/R3.webp'); --bg-pos: center center;"
+				role="img"
+				aria-label="Editorial full length"
+			></div>
+			<figcaption class="credit_wrap">
+				<PhotographerCredit instagram_user="beccyfotografie" />
+			</figcaption>
+		</figure>
+		<figure class="masonry_pack masonry_r4">
+			<div
+				class="cell gallery_tile"
+				style="--img: url('/michele_images/R4.webp'); --bg-pos: center 22%;"
+				role="img"
+				aria-label="Portrait close-up"
+			></div>
+			<figcaption class="credit_wrap">
+				<PhotographerCredit instagram_user="photo_by_ml" />
+			</figcaption>
+		</figure>
 		<article class="cell cell_copy glass_edge">
 			<h3>{featured_title}</h3>
 			<p>{featured_desc}</p>
 		</article>
-		<div
-			class="cell cell_square cell_h4_portrait"
-			style="--img: url('/michele_images/h4.webp');"
-			role="img"
-			aria-label="Square editorial"
-		></div>
-		<div
-			class="cell cell_wide"
-			style="--img: url('/michele_images/h5.webp');"
-			role="img"
-			aria-label="Wide campaign frame"
-		></div>
+		<figure class="masonry_pack masonry_h4">
+			<div
+				class="cell gallery_tile"
+				style="--img: url('/michele_images/h4.webp'); --bg-pos: center 28%;"
+				role="img"
+				aria-label="Square editorial"
+			></div>
+			<figcaption class="credit_wrap">
+				<PhotographerCredit instagram_user="photo_by_ml" />
+			</figcaption>
+		</figure>
+		<figure class="masonry_pack masonry_h5">
+			<div
+				class="cell gallery_tile"
+				style="--img: url('/michele_images/h5.webp'); --bg-pos: center 35%;"
+				role="img"
+				aria-label="Wide campaign frame"
+			></div>
+			<figcaption class="credit_wrap">
+				<PhotographerCredit instagram_user="julianmeichsner" />
+			</figcaption>
+		</figure>
 	</div>
 </section>
 
@@ -87,7 +109,6 @@
 		justify-self: end;
 	}
 
-	/* Equal-width columns: minmax(0,1fr) + min-width:0 on tiles avoids uneven track sizing */
 	.masonry {
 		display: grid;
 		grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -95,7 +116,47 @@
 		gap: 1rem;
 		max-width: min(640px, 100%);
 		margin: 0 auto;
-		align-items: stretch;
+		align-items: start;
+	}
+
+	.masonry_pack {
+		margin: 0;
+		min-width: 0;
+		max-width: 100%;
+		display: flex;
+		flex-direction: column;
+		justify-self: stretch;
+	}
+
+	.masonry_r3 {
+		grid-column: 1;
+		grid-row: 1;
+	}
+
+	.masonry_r4 {
+		grid-column: 2;
+		grid-row: 1;
+	}
+
+	.masonry_h4 {
+		grid-column: 1;
+		grid-row: 3;
+	}
+
+	.masonry_h5 {
+		grid-column: 2;
+		grid-row: 3;
+	}
+
+	.credit_wrap {
+		margin: 0;
+		min-height: 0;
+		text-align: left;
+	}
+
+	.credit_wrap :global(.photo_credit) {
+		margin-top: 0.35rem;
+		text-align: left;
 	}
 
 	.cell {
@@ -103,37 +164,23 @@
 		overflow: hidden;
 	}
 
-	.cell_tall,
-	.cell_close,
-	.cell_square,
-	.cell_wide {
+	/** Single aspect-ratio for every photo: same pixel width × height across the grid (equal columns). */
+	.gallery_tile {
 		width: 100%;
 		min-width: 0;
 		max-width: 100%;
-		justify-self: stretch;
-	}
-
-	.cell_tall {
-		grid-column: 1;
-		grid-row: 1;
 		min-height: 0;
-		aspect-ratio: 10 / 12;
+		aspect-ratio: 10 / 14;
 		background-image: var(--img);
 		background-repeat: no-repeat;
 		background-size: cover;
-		background-position: center center;
+		background-position: var(--bg-pos, center center);
 		transition: transform 420ms ease;
 	}
 
-	.cell_close {
-		grid-column: 2;
-		grid-row: 1;
-		min-height: 0;
-		aspect-ratio: 10 / 12;
-		background-image: var(--img);
-		background-size: cover;
-		background-position: center 20%;
-		transition: transform 420ms ease;
+	.gallery_tile:hover {
+		transform: scale(1.02);
+		box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5), 0 0 32px rgba(232, 180, 194, 0.12);
 	}
 
 	.cell_copy {
@@ -160,52 +207,6 @@
 		font-size: 0.84rem;
 	}
 
-	.cell_square {
-		grid-column: 1;
-		grid-row: 3;
-		min-height: 0;
-		aspect-ratio: 10 / 12;
-		background-image: var(--img);
-		background-size: cover;
-		background-position: center;
-		transition: transform 420ms ease;
-	}
-
-	/* R3 / R4 / h4 — same taller portrait frame (10∶14) */
-	.cell_r3_portrait {
-		aspect-ratio: 10 / 14;
-		background-position: center center;
-	}
-
-	.cell_r4_portrait {
-		aspect-ratio: 10 / 14;
-		background-position: center 22%;
-	}
-
-	.cell_h4_portrait {
-		aspect-ratio: 10 / 14;
-		background-position: center 28%;
-	}
-
-	.cell_wide {
-		grid-column: 2;
-		grid-row: 3;
-		min-height: 0;
-		aspect-ratio: 10 / 12;
-		background-image: var(--img);
-		background-size: cover;
-		background-position: center 35%;
-		transition: transform 420ms ease;
-	}
-
-	.cell_tall:hover,
-	.cell_close:hover,
-	.cell_square:hover,
-	.cell_wide:hover {
-		transform: scale(1.02);
-		box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5), 0 0 32px rgba(232, 180, 194, 0.12);
-	}
-
 	.glass_edge {
 		background: rgba(232, 180, 194, 0.04);
 		border: 1px solid rgba(232, 180, 194, 0.14);
@@ -230,37 +231,22 @@
 			max-width: min(430px, 100%);
 		}
 
-		.cell_tall,
-		.cell_close,
-		.cell_square,
-		.cell_wide {
+		.masonry_r3,
+		.masonry_r4,
+		.masonry_h4,
+		.masonry_h5 {
 			grid-column: 1;
 			grid-row: auto;
-			aspect-ratio: 10 / 12;
+		}
+
+		.gallery_tile {
+			width: 100%;
 			min-height: unset;
 			height: auto;
-			width: 100%;
-			min-width: 0;
-			max-width: 100%;
-			max-height: none;
+			aspect-ratio: 10 / 14;
 			background-size: cover;
-			background-position: center center;
+			background-position: var(--bg-pos, center center);
 			background-repeat: no-repeat;
-		}
-
-		.cell_tall.cell_r3_portrait {
-			aspect-ratio: 10 / 14;
-			background-position: center center;
-		}
-
-		.cell_close.cell_r4_portrait {
-			aspect-ratio: 10 / 14;
-			background-position: center 22%;
-		}
-
-		.cell_square.cell_h4_portrait {
-			aspect-ratio: 10 / 14;
-			background-position: center 28%;
 		}
 
 		.cell_copy {

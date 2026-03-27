@@ -1,11 +1,20 @@
+<script>
+	import PhotographerCredit from '$lib/components/PhotographerCredit.svelte';
+</script>
+
 <section id="about" class="about_block">
 	<div class="about_split">
-		<div
-			class="about_photo"
-			style="--about-image: url('/michele_images/h2.webp');"
-			role="img"
-			aria-label="Michela portrait"
-		></div>
+		<figure class="about_figure">
+			<div
+				class="about_photo"
+				style="--about-image: url('/michele_images/h2.webp');"
+				role="img"
+				aria-label="Michela portrait"
+			></div>
+			<figcaption class="about_photo_credit">
+				<PhotographerCredit instagram_user="figuracorporis" />
+			</figcaption>
+		</figure>
 
 		<div class="about_copy">
 			<h2>Intimate, suggestive, implied.</h2>
@@ -69,10 +78,23 @@
 		margin: 0 auto;
 	}
 
-	.about_photo {
+	.about_figure {
+		margin: 0;
 		width: 100%;
 		max-width: min(420px, 100%);
 		margin-inline: auto;
+		display: flex;
+		flex-direction: column;
+		align-items: stretch;
+	}
+
+	.about_photo_credit :global(.photo_credit) {
+		margin-top: 0.4rem;
+		text-align: left;
+	}
+
+	.about_photo {
+		width: 100%;
 		aspect-ratio: 3 / 4;
 		min-height: 0;
 		border-radius: 8px;
@@ -171,7 +193,7 @@
 			grid-template-columns: 1fr;
 		}
 
-		.about_photo {
+		.about_figure {
 			max-width: min(340px, 88vw);
 		}
 	}

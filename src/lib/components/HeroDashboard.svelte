@@ -1,3 +1,7 @@
+<script>
+	import PhotographerCredit from '$lib/components/PhotographerCredit.svelte';
+</script>
+
 <section id="home" class="hero">
 	<div class="hero_bg" style="--hero-image: url('/michele_images/LP.webp');"></div>
 	<div class="hero_dim"></div>
@@ -8,6 +12,10 @@
 		<h1 class="hero_name">Michela</h1>
 		<p class="hero_tagline">Let us build the next frame together</p>
 		<a href="#gallery" class="hero_cta">View gallery</a>
+	</div>
+
+	<div class="hero_photo_credit">
+		<PhotographerCredit instagram_user="figuracorporis" />
 	</div>
 
 	<p class="hero_cities">Berlin · Fine art · Beauty</p>
@@ -152,6 +160,24 @@
 			0 0 36px rgba(232, 180, 194, 0.22);
 	}
 
+	.hero_photo_credit {
+		position: absolute;
+		z-index: 2;
+		left: clamp(1rem, 4vw, 2.5rem);
+		bottom: clamp(1rem, 3vw, 2rem);
+		max-width: min(14rem, 70vw);
+	}
+
+	.hero_photo_credit :global(.photo_credit) {
+		margin: 0;
+		text-align: left;
+		color: rgba(196, 184, 188, 0.85);
+	}
+
+	.hero_photo_credit :global(.photo_credit a:hover) {
+		color: var(--accent-rose);
+	}
+
 	.hero_cities {
 		position: absolute;
 		z-index: 2;
@@ -184,6 +210,11 @@
 		.hero_center {
 			padding-left: clamp(1.25rem, 5vw, 2rem);
 			padding-right: clamp(1.25rem, 5vw, 2rem);
+		}
+
+		.hero_photo_credit {
+			left: clamp(1rem, 5vw, 2rem);
+			bottom: clamp(3.5rem, 12vw, 5rem);
 		}
 	}
 </style>

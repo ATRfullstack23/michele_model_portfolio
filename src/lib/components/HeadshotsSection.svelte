@@ -1,24 +1,32 @@
 <script>
 	import { fade } from 'svelte/transition';
+	import PhotographerCredit from '$lib/components/PhotographerCredit.svelte';
 
+	/**
+	 * Mixed grid (5×2): R1 / R2 on different rows; h1 not beside R shots; photographers interleaved.
+	 */
 	const headshot_list = [
-		{ label: 'Look 01', image_src: '/michele_images/h1.webp' },
-		{ label: 'Look 02', image_src: '/michele_images/ab.webp' },
-		{ label: 'Look 03', image_src: '/michele_images/h3.webp' },
-		{ label: 'Look 04', image_src: '/michele_images/R1.webp' },
-		{ label: 'Look 05', image_src: '/michele_images/R2.webp' },
-		{ label: 'Look 06', image_src: '/michele_images/h6.webp' },
-		{ label: 'Look 07', image_src: '/michele_images/h7.webp' },
-		{ label: 'Look 08', image_src: '/michele_images/h8.webp' },
-		{ label: 'Look 09', image_src: '/michele_images/h9.webp' },
-		{ label: 'Look 10', image_src: '/michele_images/about_img.webp' }
+		{ label: 'Look 01', image_src: '/michele_images/ab.webp', instagram_user: 'tolga.manasirli' },
+		{ label: 'Look 02', image_src: '/michele_images/h1.webp', instagram_user: 'figuracorporis' },
+		{ label: 'Look 03', image_src: '/michele_images/h8.webp', instagram_user: 'homiliusphotographie' },
+		{ label: 'Look 04', image_src: '/michele_images/h9.webp', instagram_user: 'matzeonfilm' },
+		{ label: 'Look 05', image_src: '/michele_images/R1.webp', instagram_user: 'defrance.images' },
+		{ label: 'Look 06', image_src: '/michele_images/h7.webp', instagram_user: 'defrance.images' },
+		{ label: 'Look 07', image_src: '/michele_images/R2.webp', instagram_user: 'defrance.images' },
+		{ label: 'Look 08', image_src: '/michele_images/h6.webp', instagram_user: 'tolga.manasirli' },
+		{ label: 'Look 09', image_src: '/michele_images/about_img.webp', instagram_user: 'defrance.images' },
+		{ label: 'Look 10', image_src: '/michele_images/h3.webp', instagram_user: 'defrance.images' }
 	];
 
-	/** @type {{ image_src: string, label: string } | null} */
+	/** @type {{ image_src: string, label: string, instagram_user: string } | null} */
 	let lightbox = $state(null);
 
 	function open_lightbox(head_item) {
-		lightbox = { image_src: head_item.image_src, label: head_item.label };
+		lightbox = {
+			image_src: head_item.image_src,
+			label: head_item.label,
+			instagram_user: head_item.instagram_user || ''
+		};
 	}
 
 	function close_lightbox() {
@@ -53,7 +61,7 @@
 <section id="portraits" class="head_band">
 	<h2 class="head_title">Portraits &amp; Stories</h2>
 	<div class="head_row">
-		{#each headshot_list as head_item (head_item.label)}
+		{#each headshot_list as head_item (head_item.image_src)}
 			<article class="head_cell">
 				<div
 					class="head_photo"
@@ -64,6 +72,11 @@
 					onclick={() => open_lightbox(head_item)}
 					onkeydown={(e) => on_photo_keydown(e, head_item)}
 				></div>
+				{#if head_item.instagram_user}
+					<div class="head_cell_credit">
+						<PhotographerCredit instagram_user={head_item.instagram_user} />
+					</div>
+				{/if}
 			</article>
 		{/each}
 	</div>
@@ -90,6 +103,11 @@
 			</button>
 			<img class="lightbox_img" src={lightbox.image_src} alt={lightbox.label} />
 			<p class="lightbox_caption">{lightbox.label}</p>
+			{#if lightbox.instagram_user}
+				<div class="lightbox_credit">
+					<PhotographerCredit instagram_user={lightbox.instagram_user} />
+				</div>
+			{/if}
 		</div>
 	</div>
 {/if}
@@ -117,19 +135,32 @@
 
 	.head_row {
 		display: grid;
-		gap: 0.75rem;
+		gap: 0.85rem;
 		margin: 0 auto;
 	}
 
 	@media (min-width: 901px) {
 		.head_row {
 			grid-template-columns: repeat(5, minmax(0, 1fr));
-			max-width: min(900px, 100%);
+			max-width: min(1180px, 100%);
 		}
 	}
 
 	.head_cell {
 		margin: 0;
+		display: flex;
+		flex-direction: column;
+		align-items: stretch;
+	}
+
+	.head_cell_credit {
+		margin-top: 0.2rem;
+		text-align: left;
+	}
+
+	.head_cell_credit :global(.photo_credit) {
+		margin-top: 0;
+		text-align: left;
 	}
 
 	.head_photo {
@@ -173,7 +204,7 @@
 
 	.lightbox_panel {
 		position: relative;
-		max-width: min(920px, 100%);
+		max-width: min(1040px, 100%);
 		max-height: min(92vh, 100%);
 		display: flex;
 		flex-direction: column;
@@ -218,7 +249,7 @@
 	.lightbox_img {
 		display: block;
 		max-width: 100%;
-		max-height: min(78vh, 880px);
+		max-height: min(84vh, 960px);
 		width: auto;
 		height: auto;
 		object-fit: contain;
@@ -237,11 +268,21 @@
 		color: var(--text-2);
 	}
 
+	.lightbox_credit {
+		align-self: stretch;
+		text-align: left;
+	}
+
+	.lightbox_credit :global(.photo_credit) {
+		margin-top: 0.35rem;
+		text-align: left;
+	}
+
 	@media (max-width: 900px) {
 		.head_row {
 			grid-template-columns: repeat(2, minmax(0, 1fr));
-			max-width: min(430px, 100%);
-			gap: 0.75rem;
+			max-width: min(560px, 100%);
+			gap: 0.85rem;
 		}
 
 		.lightbox_close {
