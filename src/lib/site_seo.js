@@ -10,9 +10,9 @@ export const og_description = 'Elegant model portfolio';
  * (must match the URL people paste). Set PUBLIC_SITE_URL on Vercel if you use a custom domain.
  */
 export const site_public_origin_default = 'https://michele-model-portfolio.vercel.app';
-/** File under static/ — JPG/PNG work best for WhatsApp / social link previews */
-export const share_image_path = '/meta.jpeg';
+/** OG share image — must resolve as https://YOUR_DOMAIN/preview.jpg (file: static/preview.jpg) */
+export const share_image_path = '/preview.jpg';
 export const share_image_type = 'image/jpeg';
-/** From static/meta.jpeg — helps Facebook’s scraper */
-export const share_image_width = 810;
-export const share_image_height = 1080;
+/** Ideal link-preview size; replace static/preview.jpg with a real 1200×630 asset when you have one */
+export const share_image_width = 1200;
+export const share_image_height = 630;
