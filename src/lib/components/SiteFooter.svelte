@@ -1,13 +1,14 @@
 <footer class="footer_wrap">
 	<div class="footer_grid">
 		<div>
-			<p class="footer_heading">Contact</p>
-			<p><a class="footer_link" href="mailto:hello@michele.com">hello@michele.com</a></p>
+			<p class="footer_heading">Michela</p>
+			<p class="footer_tag">Sensual fine art model · Berlin</p>
 		</div>
 		<div>
-			<p class="footer_heading">Agency</p>
-			<p>Berlin Model Management</p>
-			<p class="muted">Mitte · 10115 Berlin, Germany</p>
+			<p class="footer_heading">Email</p>
+			<p>
+				<a class="footer_link" href="mailto:Michela.dadda99@gmail.com">Michela.dadda99@gmail.com</a>
+			</p>
 		</div>
 		<div>
 			<p class="footer_heading">Social</p>
@@ -17,20 +18,18 @@
 					href="https://www.instagram.com/michela.dadda?igsh=MTdiOG9lMmtucmttbw=="
 					target="_blank"
 					rel="noreferrer">Instagram</a>
-				<span class="dot">·</span>
-				<a class="footer_link" href="https://www.linkedin.com" target="_blank" rel="noreferrer">LinkedIn</a>
 			</p>
 		</div>
 	</div>
 	<div class="footer_rule"></div>
-	<p class="copyright">© 2026 Michele. All rights reserved.</p>
+	<p class="copyright">© 2026 Michela. All rights reserved.</p>
 </footer>
 
 <style>
 	.footer_wrap {
 		padding: 1.5rem 0 2.4rem;
-		border-top: 1px solid rgba(255, 255, 255, 0.08);
-		background: #030303;
+		border-top: 1px solid rgba(232, 180, 194, 0.1);
+		background: #030202;
 		margin-left: calc(50% - 50vw);
 		margin-right: calc(50% - 50vw);
 		width: 100vw;
@@ -54,7 +53,15 @@
 		text-transform: uppercase;
 		letter-spacing: 0.16rem;
 		font-size: 0.6rem;
-		color: var(--text-gold);
+		color: var(--accent-rose);
+	}
+
+	.footer_tag {
+		margin: 0;
+		font-family: var(--font-body);
+		color: var(--text-2);
+		line-height: 1.55;
+		font-size: 0.82rem;
 	}
 
 	.footer_grid p {
@@ -65,36 +72,32 @@
 		font-size: 0.85rem;
 	}
 
-	.muted {
-		font-family: var(--font-body);
-		color: var(--text-3);
-		font-size: 0.86rem;
-	}
-
 	.footer_link {
 		font-family: var(--font-body);
-		color: var(--text-gold);
+		color: var(--accent-rose);
 		text-decoration: none;
-		border-bottom: 1px solid rgba(201, 169, 98, 0.4);
+		border-bottom: 1px solid rgba(232, 180, 194, 0.4);
 		padding-bottom: 2px;
-		transition: color 180ms ease, border-color 180ms ease;
+		transition:
+			color 180ms ease,
+			border-color 180ms ease;
 	}
 
 	.footer_link:hover {
 		color: var(--text-1);
-		border-color: rgba(250, 248, 243, 0.5);
-	}
-
-	.dot {
-		margin: 0 0.35rem;
-		color: var(--text-3);
+		border-color: rgba(232, 180, 194, 0.65);
 	}
 
 	.footer_rule {
 		max-width: min(1080px, 100%);
 		margin: 1.2rem auto 0;
 		height: 1px;
-		background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+		background: linear-gradient(
+			90deg,
+			transparent,
+			rgba(232, 180, 194, 0.2),
+			transparent
+		);
 	}
 
 	.copyright {

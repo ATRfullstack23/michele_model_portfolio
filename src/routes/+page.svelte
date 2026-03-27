@@ -6,13 +6,14 @@
 	import HeadshotsSection from '$lib/components/HeadshotsSection.svelte';
 	import ContactSection from '$lib/components/ContactSection.svelte';
 	import SiteFooter from '$lib/components/SiteFooter.svelte';
+	import ScrollToTop from '$lib/components/ScrollToTop.svelte';
 </script>
 
 <svelte:head>
-	<title>Michele | Fashion model · Berlin</title>
+	<title>Michela | Sensual fine art model · Berlin</title>
 	<meta
 		name="description"
-		content="Fashion model portfolio for Michele — Berlin-based, working across Germany and Europe."
+		content="Michela — Italian sensual fine art model based in Berlin. Lingerie, beauty, and intimate editorial frames."
 	/>
 	<link rel="preconnect" href="https://fonts.googleapis.com" />
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
@@ -33,18 +34,25 @@
 		<ContactSection />
 		<SiteFooter />
 	</div>
+	<ScrollToTop />
 </main>
 
 <style>
 	:global(:root) {
 		--font-display: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
 		--font-body: 'Outfit', system-ui, -apple-system, sans-serif;
-		--text-1: #f4f0e8;
-		--text-2: #c9c2b6;
-		--text-3: #958f85;
-		--text-gold: #d4b87a;
-		--text-ink: #14120f;
-		--accent-red: #e11d48;
+		--text-1: #f5eef0;
+		--text-2: #c4b8bc;
+		--text-3: #8a7f84;
+		/* Soft rose accent — editorial, not loud */
+		--accent-rose: #e8b4c2;
+		--accent-rose-deep: #c995a6;
+		--accent-rose-soft: rgba(232, 180, 194, 0.12);
+		--accent-rose-glow: rgba(232, 180, 194, 0.45);
+		--text-gold: #e8b4c2;
+		--text-ink: #0c0a0b;
+		--surface-void: #070506;
+		--surface-card: #100d0e;
 	}
 
 	:global(*) {
@@ -64,7 +72,7 @@
 		font-family: var(--font-body);
 		font-weight: 400;
 		letter-spacing: 0.02em;
-		background: #070707;
+		background: var(--surface-void);
 		color: var(--text-1);
 		-webkit-font-smoothing: antialiased;
 	}

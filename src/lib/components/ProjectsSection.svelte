@@ -1,28 +1,28 @@
 <script>
-	const featured_title = 'Natural Treat';
+	const featured_title = 'The next frame';
 	const featured_desc =
-		'A quiet study in tone and silhouette—sunlight through linen, negative space, and posture held like a note held in the air.';
+		'Implied lines, soft contrast, and a sensual stillness that lingers after the shutter—this is the energy I bring to lingerie, beauty, and intimate fine art.';
 </script>
 
-<section id="projects" class="works_section">
+<section id="gallery" class="works_section">
 	<header class="works_header">
-		<h2>Recent Works</h2>
+		<h2>Gallery</h2>
 		<p class="works_intro">
-			Editorials built for light and line: full-length studies, intimate close-ups, and campaign frames that stay
-			cohesive across seasons.
+			A quiet editorial rhythm—light on skin, negative space, and frames that suggest more than they show. Each
+			image is a chapter in the same story.
 		</p>
 	</header>
 
 	<div class="masonry">
 		<div
 			class="cell cell_tall"
-			style="--img: url('/images/c2.jpeg');"
+			style="--img: url('/michele_images/R1.webp');"
 			role="img"
 			aria-label="Editorial full length"
 		></div>
 		<div
 			class="cell cell_close"
-			style="--img: url('/images/c3.jpeg');"
+			style="--img: url('/michele_images/R2.webp');"
 			role="img"
 			aria-label="Portrait close-up"
 		></div>
@@ -32,13 +32,13 @@
 		</article>
 		<div
 			class="cell cell_square"
-			style="--img: url('/images/g9.jpeg');"
+			style="--img: url('/michele_images/R3.webp');"
 			role="img"
 			aria-label="Square editorial"
 		></div>
 		<div
 			class="cell cell_wide"
-			style="--img: url('/images/c5.jpeg');"
+			style="--img: url('/michele_images/R4.webp');"
 			role="img"
 			aria-label="Wide campaign frame"
 		></div>
@@ -48,7 +48,7 @@
 <style>
 	.works_section {
 		padding: 4rem 0 3rem;
-		background: #0a0a0a;
+		background: linear-gradient(180deg, #0a0809 0%, #070506 100%);
 		margin-left: calc(50% - 50vw);
 		margin-right: calc(50% - 50vw);
 		width: 100vw;
@@ -109,7 +109,7 @@
 		min-width: 0;
 		width: 100%;
 		min-height: 0;
-		aspect-ratio: 1 / 1;
+		aspect-ratio: 10 / 11;
 		background-image: var(--img);
 		background-repeat: no-repeat;
 		background-size: cover;
@@ -121,7 +121,7 @@
 		grid-column: 2;
 		grid-row: 1;
 		min-height: 0;
-		aspect-ratio: 1 / 1;
+		aspect-ratio: 10 / 11;
 		background-image: var(--img);
 		background-size: cover;
 		background-position: center 20%;
@@ -156,7 +156,7 @@
 		grid-column: 1;
 		grid-row: 3;
 		min-height: 0;
-		aspect-ratio: 1 / 1;
+		aspect-ratio: 10 / 11;
 		background-image: var(--img);
 		background-size: cover;
 		background-position: center;
@@ -167,7 +167,7 @@
 		grid-column: 2;
 		grid-row: 3;
 		min-height: 0;
-		aspect-ratio: 1 / 1;
+		aspect-ratio: 10 / 11;
 		background-image: var(--img);
 		background-size: cover;
 		background-position: center 35%;
@@ -179,13 +179,16 @@
 	.cell_square:hover,
 	.cell_wide:hover {
 		transform: scale(1.02);
+		box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5), 0 0 32px rgba(232, 180, 194, 0.12);
 	}
 
 	.glass_edge {
-		background: rgba(255, 255, 255, 0.05);
-		border: 1px solid rgba(255, 255, 255, 0.1);
+		background: rgba(232, 180, 194, 0.04);
+		border: 1px solid rgba(232, 180, 194, 0.14);
 		backdrop-filter: blur(14px);
-		box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+		box-shadow:
+			0 12px 40px rgba(0, 0, 0, 0.45),
+			inset 0 1px 0 rgba(255, 255, 255, 0.04);
 	}
 
 	@media (max-width: 900px) {
@@ -209,7 +212,7 @@
 		.cell_wide {
 			grid-column: 1;
 			grid-row: auto;
-			aspect-ratio: 1 / 1;
+			aspect-ratio: 10 / 11;
 			min-height: unset;
 			height: auto;
 			width: 100%;

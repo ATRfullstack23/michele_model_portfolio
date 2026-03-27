@@ -1,5 +1,5 @@
 <nav class="nav_rail" aria-label="Main navigation">
-	<a class="rail_brand" href="#home">Berlin fashion model</a>
+	<a class="rail_brand" href="#home">Michela</a>
 
 	<input id="nav_toggle" class="nav_toggle" type="checkbox" aria-label="Toggle navigation menu" />
 	<label for="nav_toggle" class="hamburger" aria-hidden="true">
@@ -11,14 +11,14 @@
 	<ul class="rail_links">
 		<li><a href="#home">Home</a></li>
 		<li><a href="#about">About</a></li>
-		<li><a href="#projects">Works</a></li>
+		<li><a href="#gallery">Gallery</a></li>
 		<li><a href="#contact">Contact</a></li>
 	</ul>
 
 	<ul class="rail_top">
-		<li><a href="#projects">Works</a></li>
+		<li><a href="#gallery">Gallery</a></li>
 		<li><a href="#about">About</a></li>
-		<li><a href="#headshots">Book</a></li>
+		<li><a href="#portraits">Portraits</a></li>
 		<li><a href="#contact">Contact</a></li>
 	</ul>
 </nav>
@@ -47,7 +47,7 @@
 		font-size: 0.56rem;
 		letter-spacing: 0.3rem;
 		text-transform: uppercase;
-		color: rgba(201, 169, 98, 0.88);
+		color: rgba(232, 180, 194, 0.92);
 		text-decoration: none;
 		opacity: 1;
 	}
@@ -82,7 +82,7 @@
 	}
 
 	.rail_links a:hover {
-		color: var(--text-gold);
+		color: var(--accent-rose);
 	}
 
 	.rail_top {
@@ -107,7 +107,7 @@
 	}
 
 	.rail_top a:hover {
-		color: var(--text-1);
+		color: var(--accent-rose);
 	}
 
 	.nav_toggle,
@@ -148,7 +148,7 @@
 		.hamburger span {
 			width: 22px;
 			height: 2px;
-			background: #f5f2eb;
+			background: rgba(245, 238, 240, 0.92);
 		}
 
 		.rail_top {

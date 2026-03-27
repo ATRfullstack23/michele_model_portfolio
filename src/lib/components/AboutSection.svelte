@@ -2,63 +2,55 @@
 	<div class="about_split">
 		<div
 			class="about_photo"
-			style="--about-image: url('/images/ab.jpeg');"
+			style="--about-image: url('/michele_images/ab.webp');"
 			role="img"
-			aria-label="Michele portrait"
+			aria-label="Michela portrait"
 		></div>
 
 		<div class="about_copy">
-			<h2>Beyond the Frame.</h2>
+			<h2>Intimate, suggestive, implied.</h2>
 			<p class="about_lead">
-				I am a Berlin-based fashion model with an editorial focus—calm under long shoot days, precise with
-				direction, and drawn to frames that favour restraint over noise. Work crosses runway, lookbooks, and
-				campaigns across Germany and Europe; collaboration with photographers and directors always comes first.
+				Italian model based in Berlin, specializing in lingerie and beauty.
+			</p>
+			<p class="about_body">
+				I explore forms of sensuality that are intimate, suggestive, implied rather than shown.
+			</p>
+			<p class="about_body">
+				My work combines a refined aesthetic with a bold, modern femininity.
 			</p>
 
-			<dl class="measure_table">
-				<div class="measure_row">
-					<dt>Height</dt>
-					<dd>178 cm / 5'10"</dd>
-				</div>
-				<div class="measure_row">
-					<dt>Bust</dt>
-					<dd>81 cm / 32"</dd>
-				</div>
-				<div class="measure_row">
-					<dt>Waist</dt>
-					<dd>63 cm / 25"</dd>
-				</div>
-				<div class="measure_row">
-					<dt>Hips</dt>
-					<dd>90 cm / 35"</dd>
-				</div>
-				<div class="measure_row">
-					<dt>Eyes</dt>
-					<dd>Hazel green</dd>
-				</div>
-			</dl>
+			<div class="model_details_card">
+				<p class="model_details_label">Model details</p>
+				<dl class="measure_table">
+					<div class="measure_row">
+						<dt>Height</dt>
+						<dd>163 cm</dd>
+					</div>
+					<div class="measure_row">
+						<dt>Overbust</dt>
+						<dd>88 cm</dd>
+					</div>
+					<div class="measure_row">
+						<dt>Underbust</dt>
+						<dd>77 cm</dd>
+					</div>
+					<div class="measure_row">
+						<dt>Waist</dt>
+						<dd>71 cm</dd>
+					</div>
+					<div class="measure_row">
+						<dt>Hips</dt>
+						<dd>100 cm</dd>
+					</div>
+				</dl>
+			</div>
 		</div>
-	</div>
-
-	<div id="experience" class="about_timeline">
-		<article class="timeline_piece">
-			<span>2018</span>
-			<p>Entered the German market with a print-led book and sharpened runway pacing.</p>
-		</article>
-		<article class="timeline_piece">
-			<span>2021</span>
-			<p>Berlin Fashion Week and EU campaigns—editorials and beauty brands on location and in studio.</p>
-		</article>
-		<article class="timeline_piece">
-			<span>2024</span>
-			<p>Berlin-based with bookings in Hamburg, Munich, and selective international fashion weeks.</p>
-		</article>
 	</div>
 </section>
 
 <style>
 	.about_block {
-		background: #050505;
+		background: #050303;
 		color: var(--text-1);
 		padding: 4rem 0;
 		margin-left: calc(50% - 50vw);
@@ -71,36 +63,74 @@
 	.about_split {
 		display: grid;
 		grid-template-columns: 1fr 1fr;
-		gap: 2.5rem;
-		align-items: center;
+		gap: 3rem;
+		align-items: start;
 		max-width: min(1080px, 100%);
 		margin: 0 auto;
 	}
 
 	.about_photo {
-		min-height: min(520px, 65vh);
-		border-radius: 6px;
+		width: 100%;
+		max-width: min(420px, 100%);
+		margin-inline: auto;
+		aspect-ratio: 3 / 4;
+		min-height: 0;
+		border-radius: 8px;
 		background-image: var(--about-image);
 		background-size: cover;
-		background-position: center 25%;
-		box-shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
+		background-position: center 22%;
+		box-shadow:
+			0 24px 60px rgba(0, 0, 0, 0.4),
+			0 0 0 1px rgba(232, 180, 194, 0.08);
 	}
 
 	.about_copy h2 {
 		font-family: var(--font-display);
 		font-weight: 600;
 		font-size: clamp(1.65rem, 3.2vw, 2.35rem);
-		letter-spacing: -0.01em;
-		margin: 0 0 1rem;
+		letter-spacing: 0.02em;
+		margin: 0 0 1.25rem;
 		color: var(--text-1);
+		line-height: 1.15;
 	}
 
 	.about_lead {
-		margin: 0 0 2rem;
+		margin: 0 0 1rem;
 		font-family: var(--font-body);
-		color: var(--text-2);
+		color: var(--text-1);
 		line-height: 1.75;
 		font-size: 0.98rem;
+		font-weight: 500;
+	}
+
+	.about_body {
+		margin: 0 0 1rem;
+		font-family: var(--font-body);
+		color: var(--text-2);
+		line-height: 1.8;
+		font-size: 0.94rem;
+	}
+
+	.about_body:last-of-type {
+		margin-bottom: 2rem;
+	}
+
+	.model_details_card {
+		padding: 1.35rem 1.5rem;
+		border-radius: 8px;
+		border: 1px solid rgba(232, 180, 194, 0.12);
+		background: linear-gradient(155deg, rgba(232, 180, 194, 0.05) 0%, rgba(8, 6, 7, 0.65) 100%);
+		box-shadow: 0 16px 40px rgba(0, 0, 0, 0.35);
+	}
+
+	.model_details_label {
+		margin: 0 0 1rem;
+		font-family: var(--font-body);
+		font-size: 0.62rem;
+		font-weight: 600;
+		letter-spacing: 0.2rem;
+		text-transform: uppercase;
+		color: var(--accent-rose);
 	}
 
 	.measure_table {
@@ -111,21 +141,21 @@
 		display: grid;
 		grid-template-columns: 1fr 1fr;
 		gap: 1rem;
-		padding: 0.75rem 0;
-		border-bottom: 1px solid rgba(245, 241, 232, 0.14);
+		padding: 0.7rem 0;
+		border-bottom: 1px solid rgba(232, 180, 194, 0.1);
 	}
 
 	.measure_row:first-of-type {
-		border-top: 1px solid rgba(245, 241, 232, 0.14);
+		border-top: 1px solid rgba(232, 180, 194, 0.1);
 	}
 
 	.measure_row dt {
 		margin: 0;
 		font-family: var(--font-body);
 		font-size: 0.64rem;
-		letter-spacing: 0.14rem;
+		letter-spacing: 0.12rem;
 		text-transform: uppercase;
-		color: var(--text-gold);
+		color: var(--text-3);
 	}
 
 	.measure_row dd {
@@ -136,53 +166,13 @@
 		font-size: 0.86rem;
 	}
 
-	#experience {
-		scroll-margin-top: 5rem;
-	}
-
-	.about_timeline {
-		display: grid;
-		grid-template-columns: repeat(3, 1fr);
-		gap: 1rem;
-		max-width: min(1080px, 100%);
-		margin: 3rem auto 0;
-	}
-
-	.timeline_piece {
-		padding: 1rem;
-		border: 1px solid rgba(255, 255, 255, 0.1);
-		border-radius: 6px;
-		background: rgba(255, 255, 255, 0.03);
-	}
-
-	.timeline_piece span {
-		display: block;
-		font-family: var(--font-body);
-		font-size: 0.8rem;
-		color: var(--text-gold);
-		font-weight: 600;
-		margin-bottom: 0.4rem;
-	}
-
-	.timeline_piece p {
-		margin: 0;
-		font-family: var(--font-body);
-		color: var(--text-2);
-		line-height: 1.55;
-		font-size: 0.82rem;
-	}
-
 	@media (max-width: 880px) {
 		.about_split {
 			grid-template-columns: 1fr;
 		}
 
 		.about_photo {
-			min-height: 360px;
-		}
-
-		.about_timeline {
-			grid-template-columns: 1fr;
+			max-width: min(340px, 88vw);
 		}
 	}
 </style>
