@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" role="img" aria-label="Michela">
+	<title>Michela</title>
+	<rect width="32" height="32" rx="7" fill="#100d0e" />
+	<path
+		fill="#e8b4c2"
+		d="M9 23V9h2.15l4.8 5.95L20.85 9H23v14h-2.4v-8.4L17.1 19.2h-2.2l-3.5-3.45V23H9z"
+	/>
+</svg>
