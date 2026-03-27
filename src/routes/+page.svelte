@@ -13,8 +13,12 @@
 	const site_title = 'Michela | Sensual fine art model · Berlin';
 	const site_description =
 		'Michela — Italian sensual fine art model based in Berlin. Lingerie, beauty, and intimate editorial frames.';
-	/** Path under static/ — use a wide image (~1200×630) for best link previews */
-	const share_image_path = '/michele_images/LP.webp';
+	/**
+	 * WhatsApp / Facebook crawlers often ignore WebP for link previews — use JPG or PNG under static/.
+	 * Ideal: ~1200×630, under ~2 MB. After changing, refresh cache in Meta Sharing Debugger; re-share with ?v=1 on the URL once.
+	 */
+	const share_image_path = '/images/g9.jpeg';
+	const share_image_type = 'image/jpeg';
 
 	const canonical_url = $derived(page.url.href.split('#')[0]);
 	const og_image_url = $derived(`${page.url.origin}${base}${share_image_path}`);
@@ -30,7 +34,10 @@
 	<meta property="og:title" content={site_title} />
 	<meta property="og:description" content={site_description} />
 	<meta property="og:url" content={canonical_url} />
+	<meta property="og:locale" content="en_GB" />
 	<meta property="og:image" content={og_image_url} />
+	<meta property="og:image:secure_url" content={og_image_url} />
+	<meta property="og:image:type" content={share_image_type} />
 	<meta property="og:image:alt" content="Michela — sensual fine art model, Berlin" />
 
 	<!-- Twitter / X -->
