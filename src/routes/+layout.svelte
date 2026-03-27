@@ -1,4 +1,5 @@
 <script>
+	import { building } from '$app/environment';
 	import { base } from '$app/paths';
 	import { page } from '$app/state';
 	import { env } from '$env/dynamic/public';
@@ -33,11 +34,16 @@
 
 	const canonical_url = $derived.by(() => {
 		const fixed = public_site_origin;
+		const search = building ? '' : page.url.search || '';
 		if (fixed) {
-			const path_part =
-				`${base}${page.url.pathname}${page.url.search || ''}`.replace(/\/{2,}/g, '/') || '/';
+			const path_part = `${base}${page.url.pathname}${search}`.replace(/\/{2,}/g, '/') || '/';
 			if (path_part.startsWith('/')) return `${fixed}${path_part}`;
 			return `${fixed}/${path_part}`;
+		}
+		if (building) {
+			const origin = site_public_origin_default.replace(/\/$/, '');
+			const path_only = `${base}${page.url.pathname}`.replace(/\/{2,}/g, '/') || '/';
+			return path_only.startsWith('/') ? `${origin}${path_only}` : `${origin}/${path_only}`;
 		}
 		return page.url.href.split('#')[0];
 	});
