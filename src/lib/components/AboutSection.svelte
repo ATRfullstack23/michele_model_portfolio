@@ -10,7 +10,7 @@
 		<div class="about_copy">
 			<h2>Intimate, suggestive, implied.</h2>
 			<p class="about_lead">
-				Italian model based in Berlin, specializing in lingerie and beauty.
+				Italian model based in Berlin, specializing in lingerie and beauty portraits.
 			</p>
 			<p class="about_body">
 				I explore forms of sensuality that are intimate, suggestive, implied rather than shown.
