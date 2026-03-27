@@ -9,8 +9,8 @@
 		site_description,
 		site_public_origin_default,
 		site_title,
+		share_image_absolute_url,
 		share_image_height,
-		share_image_path,
 		share_image_type,
 		share_image_width
 	} from '$lib/site_seo.js';
@@ -52,17 +52,6 @@
 	const favicon_svg_href = $derived(`${base}/favicon.svg`.replace(/\/{2,}/g, '/'));
 	const favicon_raster_href = $derived(`${base}/meta.jpeg`.replace(/\/{2,}/g, '/'));
 	const manifest_href = $derived(`${base}/site.webmanifest`.replace(/\/{2,}/g, '/'));
-
-	const og_image_url = $derived.by(() => {
-		const origin = public_site_origin || page.url.origin;
-		const path_base = !base || base === '.' ? '' : base;
-		const path_joined = `${path_base}${share_image_path}`.replace(/\/{2,}/g, '/');
-		try {
-			return new URL(path_joined, origin).href;
-		} catch {
-			return `${origin}${path_joined}`;
-		}
-	});
 </script>
 
 <svelte:head>
@@ -75,8 +64,8 @@
 	<meta property="og:description" content={og_description} />
 	<meta property="og:url" content={canonical_url} />
 	<meta property="og:locale" content="en_GB" />
-	<meta property="og:image" content={og_image_url} />
-	<meta property="og:image:secure_url" content={og_image_url} />
+	<meta property="og:image" content={share_image_absolute_url} />
+	<meta property="og:image:secure_url" content={share_image_absolute_url} />
 	<meta property="og:image:type" content={share_image_type} />
 	<meta property="og:image:width" content={String(share_image_width)} />
 	<meta property="og:image:height" content={String(share_image_height)} />
@@ -85,14 +74,14 @@
 	<meta name="twitter:card" content="summary_large_image" />
 	<meta name="twitter:title" content={og_title} />
 	<meta name="twitter:description" content={og_description} />
-	<meta name="twitter:image" content={og_image_url} />
+	<meta name="twitter:image" content={share_image_absolute_url} />
 
 	<meta name="theme-color" content="#070506" />
 	<meta name="apple-mobile-web-app-title" content="Michela" />
 	<meta name="application-name" content="Michela" />
 
 	<link rel="canonical" href={canonical_url} />
-	<link rel="image_src" href={og_image_url} />
+	<link rel="image_src" href={share_image_absolute_url} />
 	<link rel="icon" type="image/svg+xml" href={favicon_svg_href} sizes="any" />
 	<link rel="icon" type="image/jpeg" href={favicon_raster_href} sizes="512x512" />
 	<link rel="shortcut icon" type="image/jpeg" href={favicon_raster_href} />
