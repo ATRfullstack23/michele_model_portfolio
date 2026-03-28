@@ -32,6 +32,10 @@
 				<p class="model_details_label">Model details</p>
 				<dl class="measure_table">
 					<div class="measure_row">
+						<dt>Eye color</dt>
+						<dd>Brown</dd>
+					</div>
+					<div class="measure_row">
 						<dt>Height</dt>
 						<dd>163 cm</dd>
 					</div>
@@ -51,6 +55,7 @@
 						<dt>Hips</dt>
 						<dd>100 cm</dd>
 					</div>
+
 				</dl>
 			</div>
 		</div>
