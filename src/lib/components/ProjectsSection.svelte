@@ -35,7 +35,7 @@
 				aria-label="Portrait close-up"
 			></div>
 			<figcaption class="credit_wrap">
-				<PhotographerCredit instagram_user="photo_by_ml" />
+				<PhotographerCredit instagram_user="julianmeichsner" />
 			</figcaption>
 		</figure>
 		<article class="cell cell_copy glass_edge">
